@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rutina Minimalista 3 Días</title>
+    <!-- Iconos (Font Awesome) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /*
+  ===========================================================
+  DISEÑO MEJORADO - RUTINA MINIMALISTA
+  ===========================================================
+*/
+        :root {
+            /* Paleta de colores más moderna */
+            --primary-color: #6246ea; /* Color principal más vibrante */
+            --primary-light: #7c67ee; /* Versión más clara del color principal */
+            --primary-dark: #4e38bc; /* Versión más oscura del color principal */
+            --light-color: #fffffe; /* Fondo claro más puro */
+            --text-color: #2b2c34; /* Texto con mejor contraste */
+            --accent-color: #e45858; /* Acento más vibrante */
+            --secondary-color: #d1d1e9; /* Color secundario suave */
+            --background-color: #f4f4ff; /* Fondo sutilmente coloreado */
+            --card-color: #ffffff; /* Color de las tarjetas */
+            /* Efectos */
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06);
+            --shadow-hover: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.08);
+            /* Bordes */
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 16px;
+            --border-radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /*
+  ===========================================================
+  ENCABEZADO
+  ===========================================================
+*/
+        .header {
+            padding: 35px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            text-align: center; /* Centrar todo el contenido del encabezado */
+        }
+
+            .header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+                pointer-events: none;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .header p {
+                font-size: 1.1rem;
+                opacity: 0.92;
+                max-width: 600px;
+                margin: 0 auto;
+                font-weight: 300;
+            }
+        /*
+  ===========================================================
+  PESTAÑAS (TABS)
+  ===========================================================
+*/
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius-md);
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            padding: 5px;
+            overflow: hidden;
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 16px 5px;
+            border: none;
+            background: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            border-radius: var(--border-radius-sm);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+            .tab-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 0.3s ease;
+            }
+
+            .tab-btn.active::before,
+            .tab-btn:hover::before {
+                opacity: 1;
+            }
+
+            .tab-btn.active,
+            .tab-btn:hover {
+                color: white;
+                transform: translateY(-2px);
+            }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+            .tab-content.active {
+                display: block;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /*
+  ===========================================================
+  TITULO DE DIA
+  ===========================================================
+*/
+        .day-title {
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 18px;
+        }
+
+            .day-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+                border-radius: var(--border-radius-full);
+            }
+
+            .day-title h2 {
+                font-size: 1.6rem;
+                color: var(--primary-color);
+                margin-bottom: 8px;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+            }
+
+            .day-title span {
+                font-size: 1rem;
+                color: var(--accent-color);
+                opacity: 0.9;
+                font-weight: 400;
+                display: block;
+            }
+
+        /*
+  ===========================================================
+  INFO TIEMPO TOTAL
+  ===========================================================
+*/
+        .total-time {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-full);
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+            .total-time strong {
+                color: var(--primary-color);
+            }
+
+        /*
+  ===========================================================
+  GRID DE EJERCICIOS
+  ===========================================================
+*/
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /*
+  ===========================================================
+  TARJETA DE EJERCICIO
+  ===========================================================
+*/
+        .exercise-card {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            overflow: hidden;
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+        }
+
+            .exercise-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100px;
+                height: 100px;
+                background: radial-gradient(circle, rgba(98, 70, 234, 0.08) 0%, rgba(98, 70, 234, 0) 70%);
+                border-radius: 0 0 0 100%;
+                pointer-events: none;
+            }
+
+            .exercise-card:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-hover);
+            }
+
+        .exercise-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .exercise-number {
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-full);
+            margin-right: 15px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .exercise-name {
+            flex: 1;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+            color: var(--primary-dark);
+        }
+
+        .expand-icon {
+            font-size: 1rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-full);
+            background-color: rgba(98, 70, 234, 0.08);
+        }
+
+        .exercise-card.open .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .exercise-basic-info {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-left: 50px;
+        }
+
+            .exercise-basic-info span {
+                display: flex;
+                align-items: center;
+            }
+
+            .exercise-basic-info i {
+                color: var(--primary-color);
+                margin-right: 6px;
+                font-size: 0.85rem;
+            }
+
+        /*
+  ===========================================================
+  SECCION DESPLEGABLE DE DETALLES
+  ===========================================================
+*/
+        .exercise-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, opacity 0.6s ease;
+            margin-top: 5px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .exercise-card.open .exercise-details {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .exercise-steps {
+            margin-top: 15px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            padding-top: 15px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 14px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+            font-size: 0.95rem;
+            padding-top: 2px;
+        }
+
+        /*
+  ===========================================================
+  BARRA DE BÚSQUEDA
+  ===========================================================
+*/
+        .search-bar {
+            display: flex;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--border-radius-full);
+            background-color: var(--light-color);
+            padding: 5px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--border-radius-full) 0 0 var(--border-radius-full);
+            outline: none;
+            font-size: 0.95rem;
+            background-color: transparent;
+            font-family: inherit;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            border: none;
+            padding: 0 25px;
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+            .search-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(98, 70, 234, 0.3);
+            }
+
+            .search-btn i {
+                margin-right: 6px;
+            }
+
+        /*
+  ===========================================================
+  BOTÓN IMPRIMIR Y BOTÓN VOLVER ARRIBA
+  ===========================================================
+*/
+        .print-btn,
+        .back-to-top {
+            width: 55px;
+            height: 55px;
+            border: none;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 160px;
+            right: 25px;
+            opacity: 0;
+            visibility: hidden;
+            font-size: 18px;
+        }
+
+            .print-btn:hover,
+            .back-to-top:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 15px rgba(98, 70, 234, 0.4);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        /*
+  ===========================================================
+  FOOTER
+  ===========================================================
+*/
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: var(--light-color);
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+        }
+
+            .footer p {
+                font-size: 0.9rem;
+                color: var(--text-color);
+                opacity: 0.7;
+            }
+
+        /*
+  ===========================================================
+  ANIMACIONES Y EFECTOS
+  ===========================================================
+*/
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Aplicar animación a las tarjetas al cargar la página */
+        .exercise-card:nth-child(even) {
+            animation: fadeIn 0.5s ease backwards;
+            animation-delay: calc(0.1s * var(--i, 0));
+        }
+
+        .exercise-card:nth-child(odd) {
+            animation: fadeIn 0.5s ease backwards;
+            animation-delay: calc(0.1s * var(--i, 0) + 0.05s);
+        }
+
+        /*
+  ===========================================================
+  MEDIA QUERIES
+  ===========================================================
+*/
+        @media (min-width: 768px) {
+            .exercise-grid {
+                grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .header {
+                padding: 45px 0;
+            }
+
+                .header h1 {
+                    font-size: 2.5rem;
+                }
+        }
+
+        @media (max-width: 767px) {
+            .tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 4px;
+                top: 10px;
+            }
+
+            .tab-btn {
+                padding: 12px 10px;
+                white-space: nowrap;
+                min-width: 100px;
+                font-size: 0.9rem;
+            }
+
+            .search-bar {
+                flex-direction: row;
+                padding: 3px;
+            }
+
+            .search-input {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+
+            .search-btn {
+                padding: 0 15px;
+                font-size: 0.9rem;
+            }
+
+            .print-btn, .back-to-top {
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
+            }
+
+            .exercise-basic-info {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 0.95rem;
+            }
+
+            .day-title h2 {
+                font-size: 1.4rem;
+            }
+
+            .search-btn span {
+                display: none;
+            }
+
+            .search-btn i {
+                margin-right: 0;
+            }
+
+            .exercise-card {
+                padding: 15px;
+            }
+
+            .exercise-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .exercise-name {
+                font-size: 1.05rem;
+            }
+        }
+
+        /*
+  ===========================================================
+  ESTILOS DE IMPRESIÓN
+  ===========================================================
+*/
+        @media print {
+            .header,
+            .tabs,
+            .search-bar,
+            .print-btn,
+            .back-to-top,
+            .footer {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .exercise-details {
+                max-height: none !important;
+                opacity: 1 !important;
+            }
+
+            .tab-content {
+                display: block !important;
+            }
+
+            .exercise-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #eee;
+                margin-bottom: 15px;
+            }
+
+            .day-title::after {
+                display: none;
+            }
+
+            body {
+                background-color: white;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+        }
+
+        /* Efecto hover adicional para las tarjetas */
+        .exercise-card:hover .exercise-number {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <div class="header">
+        <div class="container">
+            <h1>Rutina de 3 Días</h1>
+            <p>Programa híbrido de fuerza y cardio-movilidad </p>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+
+        <!-- BARRA DE BÚSQUEDA -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar ejercicio..." />
+            <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="day1">DÍA 1</button>
+            <button class="tab-btn" data-tab="day2">DÍA 2</button>
+            <button class="tab-btn" data-tab="day3">DÍA 3</button>
+        </div>
+
+        <!-- =========================================================
+             DÍA 1
+             ========================================================= -->
+        <div class="tab-content active" id="day1">
+            <div class="day-title">
+                <h2>DÍA 1: FUERZA (PIERNAS + TREN SUPERIOR)</h2>
+                <span>Se combina con cardio tipo circuito final</span>
+            </div>
+            <div class="total-time">
+                <strong>Tiempo Total Estimado:</strong> 60-70 minutos
+            </div>
+
+            <div class="exercise-grid">
+
+                <!-- 1. CALENTAMIENTO GENERAL -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-name">Calentamiento General</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 5-10 min</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Movilidad Ligera</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Realiza movimientos articulares (hombros, caderas, rodillas) y pequeños estiramientos dinámicos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Opcional: 5 min de bici estática o caminar ligero para elevar la temperatura corporal.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. HACK SQUAT -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-name">Hack Squat (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×10</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60-90s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Apoya la espalda y hombros en la máquina, coloca los pies a la anchura de caderas.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Flexiona rodillas y baja controlando la zona lumbar, sin rebotar en la parte baja.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Empuja hacia arriba enfocándote en la fuerza de piernas, manteniendo el tronco firme.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PRENSA DE PIERNAS -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-name">Prensa de Piernas</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Siéntate en la máquina con la espalda apoyada, pies separados al ancho de caderas.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Empuja la plataforma hasta casi extender rodillas, sin bloquearlas.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa de forma controlada evitando sobrecargar la zona lumbar.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ADUCCIÓN DE CADERA (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-name">Aducción de Cadera (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta la máquina para que las almohadillas queden internas, contra los muslos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Cierra las piernas contrayendo la cara interna de los muslos (aductores).
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa lentamente a la posición inicial, manteniendo la espalda apoyada.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CHEST PRESS (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-name">Chest Press (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta el asiento para que las empuñaduras queden a la altura del pecho.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Empuja hacia adelante hasta estirar casi por completo los brazos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Contrae el pecho y regresa lentamente manteniendo la espalda estable.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. REMO SENTADO (MÁQUINA O POLEA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-name">Remo Sentado</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60-90s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Siéntate con la espalda recta, sujeta las asas con un agarre neutro o pronado.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Tira de las asas hacia tu abdomen, juntando ligeramente los omóplatos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa a la posición inicial sin encorvar la espalda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. CIRCUITO DE CARDIO-MOVILIDAD -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-name">Circuito Cardio-Movilidad</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 15-20 min</span>
+                        <span><i class="fas fa-heartbeat"></i> Circuito Suave</span>
+                        <span><i class="fas fa-stopwatch"></i> Pausas breves 15-30s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <p>Ejemplo de circuito:</p>
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    1 min de Marcha en el sitio + 1 min de Balanceo de brazos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    1 min de Step-ups (subiendo y bajando un escalón) + 1 min de Giros de Cintura con brazos extendidos.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Repite 4 o 5 rondas según tu resistencia. Descansa 15-30s entre rondas si lo requieres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Fin .exercise-grid -->
+        </div> <!-- Fin .tab-content (DÍA 1) -->
+        <!-- =========================================================
+             DÍA 2
+             ========================================================= -->
+        <div class="tab-content" id="day2">
+            <div class="day-title">
+                <h2>DÍA 2: HOMBROS + PIERNAS + GLÚTEOS</h2>
+                <span>Se finaliza con circuito de movilidad/cardio</span>
+            </div>
+            <div class="total-time">
+                <strong>Tiempo Total Estimado:</strong> 60-70 minutos
+            </div>
+
+            <div class="exercise-grid">
+
+                <!-- 1. CALENTAMIENTO DINÁMICO -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-name">Calentamiento Dinámico</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 5 min</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Movilidad Articular</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Rotaciones de hombros, círculos de cadera y balanceos de pierna para activar el cuerpo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. PRESS DE HOMBROS (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-name">Press de Hombros (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×10</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60-90s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta la máquina para que las empuñaduras queden a nivel de hombros.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Empuja hacia arriba, evitando encoger el cuello. Mantén abdomen firme.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa controlando el movimiento para no forzar la articulación.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. EXTENSIÓN DE CUÁDRICEPS (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-name">Extensión de Cuádriceps</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta el respaldo para alinear la rodilla con el eje de la máquina.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Extiende las piernas sin bloquear rodillas. Siente la contracción en el cuádriceps.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Desciende de manera controlada, evitando golpes bruscos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. HIP THRUST (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-name">Hip Thrust (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×10</span>
+                        <span><i class="fas fa-dumbbell"></i> Foco en Glúteos</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60-90s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta la máquina de glúteos (o utiliza una máquina diseñada para hip thrust).
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Empuja desde los talones, levantando la cadera hasta alinear rodillas-caderas-hombros.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Aprieta glúteos en la parte alta y desciende sin golpear. Controla la zona lumbar.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ABDUCTORES (MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-name">Abductores (Máquina)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×15</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 45-60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Siéntate con la espalda apoyada y ajusta la amplitud para no forzar la cadera.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Abre las piernas contra la resistencia, enfocándote en la parte externa de las caderas.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa lentamente al centro, manteniendo el control.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. ELEVACIONES LATERALES (MANCUERNAS) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-name">Elevaciones Laterales (Hombros)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 45-60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Sostén una mancuerna en cada mano, brazos relajados a los costados.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Eleva ambas mancuernas hasta la altura de hombros, manteniendo codos ligeramente flexionados.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Desciende despacio y evita balancear el tronco para no lesionar la espalda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. CIRCUITO DE CARDIO-FUNCIONAL -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-name">Circuito Cardio-Funcional</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 15-20 min</span>
+                        <span><i class="fas fa-heartbeat"></i> Ritmo Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Pausas 15-30s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <p>Ejemplo de circuito:</p>
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    30s de Sentadillas al Aire + 30s de Steps laterales.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    30s de Toques de Rodilla en el sitio + 30s de Plancha Alta (si es posible).
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Descansa 15-30s y repite 4 o 5 veces según tu condición.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Fin .exercise-grid -->
+        </div> <!-- Fin .tab-content (DÍA 2) -->
+        <!-- =========================================================
+             DÍA 3
+             ========================================================= -->
+        <div class="tab-content" id="day3">
+            <div class="day-title">
+                <h2>DÍA 3: FUERZA (ESPALDA, BRAZOS) + CARDIO</h2>
+                <span>Terminamos con circuito de intervalos ligeros</span>
+            </div>
+            <div class="total-time">
+                <strong>Tiempo Total Estimado:</strong> 60-70 minutos
+            </div>
+
+            <div class="exercise-grid">
+
+                <!-- 1. CALENTAMIENTO SUAVE -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-name">Calentamiento Suave</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 5 min</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Movimientos Articulares</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Mueve cuello, hombros y muñecas con giros suaves; añade rotaciones de tronco con cuidado.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Opcional: Camina o pedalea a baja intensidad para subir la temperatura.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. JALÓN AL PECHO (POLEA ALTA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-name">Jalón al Pecho (Polea Alta)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Sujeta la barra con agarre más ancho que hombros, siéntate con espalda recta.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Tira la barra hacia la parte alta del pecho, sacando ligeramente el pecho.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Sube la barra lentamente, sin balancear el tronco.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CURL DE BÍCEPS (MANCUERNAS O MÁQUINA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-name">Curl de Bíceps</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×10</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 45-60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Toma un par de mancuernas (o usa la máquina de bíceps) con palmas mirando hacia adelante.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Flexiona los codos hasta sentir la contracción en los bíceps, sin balancear el tronco.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Desciende de forma lenta, manteniendo los codos cerca del cuerpo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. EXTENSIÓN DE TRÍCEPS (POLEA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-name">Extensión de Tríceps (Polea)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Coloca la polea arriba, sujeta la cuerda o barra con agarre estrecho y codos pegados a los costados.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Empuja hacia abajo extendiendo los codos, enfocándote en la contracción del tríceps.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Regresa lentamente, sin separar los codos del torso.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. REMO CON MANCUERNA (UNILATERAL) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-name">Remo Unilateral con Mancuerna</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×10 c/brazo</span>
+                        <span><i class="fas fa-dumbbell"></i> Peso Ligero-Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Apoya una mano y rodilla en un banco, tomando la mancuerna con la otra mano.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Tira de la mancuerna hacia la cintura, manteniendo la espalda recta y el abdomen firme.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Baja lentamente, controlando el movimiento. Repite con el otro brazo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. FACE PULL (POLEA ALTA) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-name">Face Pull (Polea Alta)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-layer-group"></i> 3×12</span>
+                        <span><i class="fas fa-dumbbell"></i> Espalda Alta / Hombros</span>
+                        <span><i class="fas fa-stopwatch"></i> Descanso 60s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Ajusta la polea a la altura de tu cara y sujeta la cuerda con agarre neutro/pulgares hacia ti.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Tira de la cuerda hacia tu cara, abriendo los codos y retrayendo las escápulas.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Mantén el torso firme y regresa controladamente a la posición inicial.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. INTERVALOS LIGEROS (CARDIO-FINAL) -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-name">Intervalos Ligeros (Cardio-Final)</div>
+                        <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="exercise-basic-info">
+                        <span><i class="fas fa-clock"></i> 15-20 min</span>
+                        <span><i class="fas fa-heartbeat"></i> Ritmo Moderado</span>
+                        <span><i class="fas fa-stopwatch"></i> Breves Pausas 15-30s</span>
+                    </div>
+                    <div class="exercise-details">
+                        <p>Ejemplo de intervalos suaves:</p>
+                        <div class="exercise-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    1 min de marcha o step enérgico + 1 min de ritmo más lento.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Continúa alternando cada 1 min durante 15-20 min, evitando picos de alta intensidad.
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Finaliza con 2-3 min de estiramientos suaves de espalda y brazos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Fin .exercise-grid -->
+        </div> <!-- Fin .tab-content (DÍA 3) -->
+
+    </div> <!-- Fin .container -->
+    <!-- BOTÓN IMPRIMIR -->
+    <button class="print-btn" onclick="window.print()" title="Imprimir Rutina">
+        <i class="fas fa-print"></i>
+    </button>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button class="back-to-top" id="backToTopBtn" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2025 - Rutina 3 Días | Entreno híbrido</p>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        /*
+          Manejo de Pestañas (Tabs)
+        */
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                const target = btn.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active');
+
+                // Desplazar hacia arriba al cambiar de pestaña
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        /*
+          Mostrar / Ocultar detalles de los ejercicios
+        */
+        const exerciseCards = document.querySelectorAll('.exercise-card');
+        exerciseCards.forEach((card) => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('open');
+            });
+        });
+
+        /*
+          Botón de volver arriba
+        */
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /*
+          Búsqueda Sencilla
+        */
+        const searchInput = document.getElementById('searchInput');
+        document.querySelector('.search-btn').addEventListener('click', () => {
+            const query = searchInput.value.toLowerCase().trim();
+            if (!query) {
+                // Mostrar todo si no hay texto
+                exerciseCards.forEach(card => card.style.display = 'block');
+                return;
+            }
+            // Filtrar
+            exerciseCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+        // Buscar con Enter
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>
